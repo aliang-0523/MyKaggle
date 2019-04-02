@@ -7,7 +7,7 @@ import sklearn.preprocessing as preprocessing
 from sklearn import linear_model
 from sklearn.ensemble import BaggingRegressor
 
-data_train=pd.read_csv('F:/Kaggle/titanic/Train.csv')
+data_train=pd.read_csv('F:/Kaggle/titanic/train.csv')
 
 '''
 可视化观察特征
@@ -172,7 +172,7 @@ X = null_age[:, 1:]
 predictedAges = rfr.predict(X)
 data_test.loc[ (data_test.Age.isnull()), 'Age' ] = predictedAges
 
-#data_test = set_Cabin_type(data_test)
+data_test = set_Cabin_type(data_test)
 dummies_Cabin = pd.get_dummies(data_test['Cabin'], prefix= 'Cabin')
 dummies_Embarked = pd.get_dummies(data_test['Embarked'], prefix= 'Embarked')
 dummies_Sex = pd.get_dummies(data_test['Sex'], prefix= 'Sex')
